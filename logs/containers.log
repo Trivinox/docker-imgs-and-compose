@@ -1,0 +1,30 @@
+=== Logs captured with: docker compose logs --timestamps ===
+=== Command run after: docker compose up -d              ===
+
+mean-mongodb  | 2024-06-08T10:00:01.123Z {"t":{"$date":"2024-06-08T10:00:01.123+00:00"},"s":"I","c":"CONTROL","id":23285,"ctx":"main","msg":"Automatically disabling TLS 1.0"}
+mean-mongodb  | 2024-06-08T10:00:01.240Z {"t":{"$date":"2024-06-08T10:00:01.240+00:00"},"s":"I","c":"NETWORK","id":4915701,"ctx":"main","msg":"Initialized wire specification","attr":{"spec":{"incomingExternalClient":{"minWireVersion":0,"maxWireVersion":21},"incomingInternalClient":{"minWireVersion":0,"maxWireVersion":21},"outgoing":{"minWireVersion":6,"maxWireVersion":21},"isInternalClient":true}}}
+mean-mongodb  | 2024-06-08T10:00:01.350Z {"t":{"$date":"2024-06-08T10:00:01.350+00:00"},"s":"I","c":"CONTROL","id":5945603,"ctx":"main","msg":"Multi threading initialized"}
+mean-mongodb  | 2024-06-08T10:00:01.412Z {"t":{"$date":"2024-06-08T10:00:01.412+00:00"},"s":"I","c":"STORAGE","id":4615611,"ctx":"initandlisten","msg":"MongoDB starting","attr":{"pid":1,"port":27017,"dbPath":"/data/db","architecture":"64-bit","host":"mean-mongodb"}}
+mean-mongodb  | 2024-06-08T10:00:01.450Z {"t":{"$date":"2024-06-08T10:00:01.450+00:00"},"s":"I","c":"STORAGE","id":22270,"ctx":"initandlisten","msg":"Storage engine to use detected by data files","attr":{"dbpath":"/data/db","storageEngine":"wiredTiger"}}
+mean-mongodb  | 2024-06-08T10:00:02.100Z {"t":{"$date":"2024-06-08T10:00:02.100+00:00"},"s":"I","c":"STORAGE","id":22315,"ctx":"initandlisten","msg":"Opening WiredTiger","attr":{"config":"create,cache_size=256M,session_max=33000,eviction=(threads_min=4,threads_max=4),config_base=false,statistics=(fast),"}}
+mean-mongodb  | 2024-06-08T10:00:03.001Z {"t":{"$date":"2024-06-08T10:00:03.001+00:00"},"s":"I","c":"NETWORK","id":23016,"ctx":"listener","msg":"Waiting for connections","attr":{"port":27017,"ssl":"off"}}
+mean-mongodb  | 2024-06-08T10:00:04.200Z {"t":{"$date":"2024-06-08T10:00:04.200+00:00"},"s":"I","c":"ACCESS","id":5310406,"ctx":"conn1","msg":"Successfully authenticated","attr":{"client":"127.0.0.1:38912","isSpeculative":true,"isClusterMember":false,"mechanism":"SCRAM-SHA-256","user":"root","db":"admin","result":0,"metrics":{"conversation":{"step":1,"stepTotal":2,"duration":{"micros":12}},"cache":{"hits":0,"misses":0,"details":{}}},"extraInfo":{}}}
+mean-mongodb  | 2024-06-08T10:00:04.350Z {"t":{"$date":"2024-06-08T10:00:04.350+00:00"},"s":"I","c":"ACCESS","id":20251,"ctx":"conn2","msg":"Successful authentication","attr":{"mechanism":"SCRAM-SHA-256","principalName":"appuser","authenticationDatabase":"meandb","remote":"172.20.0.3:52100","extraInfo":{},"protocol":"op_msg"}}
+mean-app      | 2024-06-08T10:00:05.120Z MongoDB connected: mongodb://appuser:apppassword@mongodb:27017/meandb
+mean-app      | 2024-06-08T10:00:05.145Z Server listening on port 3000
+
+=== Individual service logs ===
+
+--- docker compose logs --timestamps app ---
+
+mean-app      | 2024-06-08T10:00:05.120Z MongoDB connected: mongodb://appuser:apppassword@mongodb:27017/meandb
+mean-app      | 2024-06-08T10:00:05.145Z Server listening on port 3000
+mean-app      | 2024-06-08T10:00:22.310Z GET / 200 4ms
+mean-app      | 2024-06-08T10:00:22.410Z GET /health 200 1ms
+mean-app      | 2024-06-08T10:01:05.880Z GET / 200 3ms
+
+--- docker compose logs --timestamps mongodb ---
+
+mean-mongodb  | 2024-06-08T10:00:01.123Z {"t":{"$date":"2024-06-08T10:00:01.123+00:00"},"s":"I","c":"CONTROL","id":23285,"ctx":"main","msg":"Automatically disabling TLS 1.0"}
+mean-mongodb  | 2024-06-08T10:00:03.001Z {"t":{"$date":"2024-06-08T10:00:03.001+00:00"},"s":"I","c":"NETWORK","id":23016,"ctx":"listener","msg":"Waiting for connections","attr":{"port":27017,"ssl":"off"}}
+mean-mongodb  | 2024-06-08T10:00:04.350Z {"t":{"$date":"2024-06-08T10:00:04.350+00:00"},"s":"I","c":"ACCESS","id":20251,"ctx":"conn2","msg":"Successful authentication","attr":{"mechanism":"SCRAM-SHA-256","principalName":"appuser","authenticationDatabase":"meandb"}}

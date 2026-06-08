@@ -1,0 +1,13 @@
+{
+  "name": "mean-stack-app",
+  "version": "1.0.0",
+  "description": "MEAN stack lab -- Express API backed by MongoDB",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "express": "^4.18.0",
+    "mongoose": "^8.0.0"
+  }
+}
