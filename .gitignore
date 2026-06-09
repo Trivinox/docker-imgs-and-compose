@@ -1,0 +1,14 @@
+# Node
+node_modules/
+npm-debug.log*
+
+# Logs
+logs/
+*.log
+
+# Variables de entorno
+.env
+.env.*
+
+# OS
+Thumbs.db
